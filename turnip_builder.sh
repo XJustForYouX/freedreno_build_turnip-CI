@@ -16,6 +16,7 @@ patches=(
 	"visual-issues-in-some-games-2;commit/9de628b65ca36b920dc6181251b33c436cad1b68;--reverse"
 	"8gen3-fix;merge_requests/27912;"
 	"mem-leaks-tu-shader;merge_requests/27847;"
+        "add-RMV-Support;merge_requests/27631;--reverse"
 )
 #patches=()
 commit=""

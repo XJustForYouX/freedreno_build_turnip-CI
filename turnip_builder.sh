@@ -157,7 +157,7 @@ port_lib_for_adrenotool(){
 	patchelf --set-soname vulkan.adreno.so libvulkan_freedreno.so
 	mv libvulkan_freedreno.so vulkan.ad06XX.so
 
-	if ! [ -a vulkan.ad07XX.so ]; then
+	if ! [ -a vulkan.ad06XX.so ]; then
 		echo -e "$red Build failed! $nocolor" && exit 1
 	fi
 
@@ -180,13 +180,13 @@ port_lib_for_adrenotool(){
   "vendor": "Mesa",
   "driverVersion": "$mesa_version/vk$vulkan_version",
   "minApi": 27,
-  "libraryName": "vulkan.ad07XX.so"
+  "libraryName": "vulkan.ad06XX.so"
 }
 EOF
 
 	filename=turnip_"$(date +'%b-%d-%Y')"_"$commit_short"
 	echo "Copy necessary files from work directory ..." $'\n'
-	cp "$workdir"/vulkan.ad07XX.so "$packagedir"
+	cp "$workdir"/vulkan.ad06XX.so "$packagedir"
 
 	echo "Packing files in to adrenotool package ..." $'\n'
 	zip -9 "$workdir"/"$filename$patched".zip ./*

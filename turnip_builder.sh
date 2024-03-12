@@ -7,7 +7,7 @@ deps="meson ninja patchelf unzip curl pip flex bison zip git"
 workdir="$(pwd)/turnip_workdir"
 packagedir="$workdir/turnip_module"
 ndkver="android-ndk-r26c"
-sdkver="29"
+sdkver="31"
 mesasrc="https://gitlab.freedesktop.org/mesa/mesa.git"
 
 #array of string => commit/branch;patch args

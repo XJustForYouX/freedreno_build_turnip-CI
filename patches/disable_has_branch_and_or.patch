@@ -1,4 +1,4 @@
-Author: Weab-chan
+Author: XForYouX
 Disable has_branch_and_or since it produces inverted colors in some games
 (Previously, we were reverting offending commits. In any case, this is not a permanent solution.)
 

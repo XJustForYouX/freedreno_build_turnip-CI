@@ -16,8 +16,6 @@ patches=(
 	"Mem-leaks-tu-shader;merge_requests/27847;"
 	"Fix-undefined-value-gl_ClipDistance;merge_requests/28109;"
 	"Visual-fixes-in-some-games;../../patches/disable_has_branch_and_or.patch;"
-        "add-RMV-Support;commit/a13860e5dfd0cf28ff5292b410d5be44791ca7cc;"
-	"fix-color-buffer;commit/782fb8966bd59a40b905b17804c493a76fdea7a0;"        
 )
 #patches=()
 commit=""

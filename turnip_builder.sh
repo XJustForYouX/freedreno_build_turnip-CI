@@ -7,7 +7,7 @@ deps="meson ninja patchelf unzip curl pip flex bison zip git"
 workdir="$(pwd)/turnip_workdir"
 packagedir="$workdir/turnip_module"
 ndkver="android-ndk-r26c"
-sdkver="31"
+sdkver="33"
 mesasrc="https://gitlab.freedesktop.org/mesa/mesa.git"
 
 #array of string => commit/branch;patch args
@@ -16,6 +16,8 @@ patches=(
 	"Mem-leaks-tu-shader;merge_requests/27847;"
 	"Fix-undefined-value-gl_ClipDistance;merge_requests/28109;"
 	"Visual-fixes-in-some-games;../../patches/disable_has_branch_and_or.patch;"
+        "add-RMV-Support;commit/a13860e5dfd0cf28ff5292b410d5be44791ca7cc;"
+	"fix-color-buffer;commit/782fb8966bd59a40b905b17804c493a76fdea7a0;"
 )
 #patches=()
 commit=""
@@ -151,12 +153,17 @@ endian = 'little'
 EOF
 
 	echo "Generating build files ..." $'\n'
+	meson build-android-aarch64 --prefix=/tmp/mesa --cross-file "$workdir"/mesa/android-aarch64 -Dbuildtype=release -Dplatforms=android -Dplatform-sdk-version=25 -Dandroid-stub=true -Degl=disabled -Dgbm=disabled -Dglx=disabled -Dgallium-drivers= -Dvulkan-drivers=freedreno -Dvulkan-beta=true -Dfreedreno-kmds=kgsl -Db_lto=true &> "$workdir"/meson_log
+
+	echo "Compiling build files ..." $'\n'
+	ninja -C build-android-aarch64 &> "$workdir"/ninja_log
+
+        echo "Generating build files ..." $'\n'
 	meson build-android-aarch64 --cross-file "$workdir"/mesa/android-aarch64 -Dbuildtype=release -Dplatforms=android -Dplatform-sdk-version=$sdkver -Dandroid-stub=true -Dgallium-drivers= -Dvulkan-drivers=freedreno -Dvulkan-beta=true -Dfreedreno-kmds=kgsl -Db_lto=true &> "$workdir"/meson_log
 
 	echo "Compiling build files ..." $'\n'
 	ninja -C build-android-aarch64 &> "$workdir"/ninja_log
-}
-
+ 
 port_lib_for_adrenotool(){
 	echo "Using patchelf to match soname ..."  $'\n'
 	cp "$workdir"/mesa/build-android-aarch64/src/freedreno/vulkan/libvulkan_freedreno.so "$workdir"

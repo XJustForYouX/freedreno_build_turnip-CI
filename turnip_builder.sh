@@ -20,7 +20,8 @@ patches=(
         "add-RMV-Support;commit/a13860e5dfd0cf28ff5292b410d5be44791ca7cc;--reverse"
 	"fix-color-buffer;commit/782fb8966bd59a40b905b17804c493a76fdea7a0;--reverse"
         "Fix-undefined-value-gl_ClipDistance;merge_requests/28109;--reverse"
-	"tweak attachment validation ( Fix Texture );merge_requests/28135;--reverse"
+	"tweak-attachment-validation(Fix Texture);merge_requests/28135;--reverse"
+        "Fix-A6xx-&-fix-scan-order-for-scaling-lists-on-H265-decoding.;commit/7d9ba366d4098a49975e87cb1814f61eb43f52a1;--reverse"
 )
 #patches=()
 commit=""

@@ -15,12 +15,12 @@ patches=(
 	"visual-fix-issues-in-some-games-1;merge_requests/27986;--reverse"
 	"visual-fix-issues-in-some-games-2;commit/9de628b65ca36b920dc6181251b33c436cad1b68;--reverse"
         "visual-fix-issues-in-some-game-3;merge_requests/28148;--reverse"
-	"8gen3-fix;merge_requests/27912;"
-	"mem-leaks-tu-shader;merge_requests/27847;"
+	"8gen3-fix;merge_requests/27912;--reverse"
+	"mem-leaks-tu-shader;merge_requests/27847;--reverse"
         "add-RMV-Support;commit/a13860e5dfd0cf28ff5292b410d5be44791ca7cc;--reverse"
 	"fix-color-buffer;commit/782fb8966bd59a40b905b17804c493a76fdea7a0;--reverse"
         "Fix-undefined-value-gl_ClipDistance;merge_requests/28109;--reverse"
-	"tweak-attachment-validation(Fix Texture);merge_requests/28135;--reverse"
+	"tweak-attachment-validation;merge_requests/28135;--reverse"
         "Fix-A6xx-&-fix-scan-order-for-scaling-lists-on-H265-decoding.;commit/7d9ba366d4098a49975e87cb1814f61eb43f52a1;--reverse"
 )
 #patches=()
